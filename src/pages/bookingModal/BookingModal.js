@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import toast from 'react-hot-toast';
 import { AuthContext } from '../../context/AuthProvider';
 
 const BookingModal = ({ phone, setPhone }) => {
@@ -20,8 +21,26 @@ const BookingModal = ({ phone, setPhone }) => {
             location,
             name,
         }
-        console.log(booking);
-        setPhone(null);
+
+        fetch('http://localhost:5000/bookings', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(booking)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            if(data.acknowledged){
+                setPhone(null);
+                toast.success('Purchase Confirmed')
+
+            }
+            
+
+        })
+       
 
     }
     return (
@@ -34,7 +53,7 @@ const BookingModal = ({ phone, setPhone }) => {
                     <form onSubmit={handleBooking} className='grid grid-cols-1 gap-3 mt-10'>
                         <input name='name' type="text" defaultValue={user?.displayName} disabled readOnly placeholder="Your Name" className="input w-full input-bordered" />
                         <input name='email' type="email" defaultValue={user?.email} disabled readOnly placeholder="Email Address" className="input w-full input-bordered" />
-                        <input name='phone' type="text" value={mobile} className="input w-full input-bordered" />
+                        <input name='phone' type="text" placeholder='phone number' className="input w-full input-bordered" />
                         <input type="text" value={resale_Price} className="input w-full input-bordered" />
 
                         <input type="text" value={location} className="input w-full input-bordered" />
