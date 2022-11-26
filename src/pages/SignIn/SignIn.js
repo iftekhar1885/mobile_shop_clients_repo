@@ -12,45 +12,47 @@ import toast from 'react-hot-toast';
 
 const SignIn = () => {
 
-    const {register, handleSubmit, formState: {errors}} = useForm();
-    const {newUser, updateUser, signInWithGoogle} = useContext(AuthContext);
+    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { newUser, updateUser, signInWithGoogle } = useContext(AuthContext);
     const [signUpError, setSignUpError] = useState('')
 
     const navigate = useNavigate();
 
-    const handleSIgnIn = (data) =>{
+    const handleSIgnIn = (data) => {
         console.log(data);
         setSignUpError('')
         newUser(data.email, data.password)
-        .then(result =>{
-            const user = result.user;
-            console.log(user);
-            toast('Create User Successfully')
-            const userInfo = {
-                displayName: data.name
-            }
-            updateUser(userInfo)
-             .then( () => {
-                navigate('/');
-             })
-             .catch(error => console.log(error));
-        })
-        .catch(error =>{
-            console.log(error)
-            setSignUpError(error.message)
-        });
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                toast('Create User Successfully')
+                const userInfo = {
+                    displayName: data.name
+                }
+                updateUser(userInfo)
+                    .then(() => {
+                        navigate('/');
+                    })
+                    .catch(error => console.log(error));
+            })
+            .catch(error => {
+                console.log(error)
+                setSignUpError(error.message)
+            });
     }
 
-    const handleGoogleSignIn = () =>{
+    const handleGoogleSignIn = () => {
         signInWithGoogle()
-        .then( result =>{
-            const user = result.user;
-            console.log(user);
-        })
-        .catch(error => console.error(error));
+            .then(result => {
+                const user = result.user;
+                navigate('/');
+                console.log(user);
+            })
+            .catch(error => console.error(error));
     }
     return (
         <div className='h-[800px] flex justify-center items-center'>
+
             <div className='w-96 p-7'>
                 <h2 className='text-xl text-center'>Sign Up</h2>
                 <form onSubmit={handleSubmit(handleSIgnIn)}>
@@ -79,13 +81,20 @@ const SignIn = () => {
                             {...register("password", {
                                 required: "Must be required password",
                                 minLength: { value: 6, message: 'password must be 6 characters or longer' },
-                               
+
                             })}
                             className="input input-bordered w-full max-w-xs" />
                         {errors.password && <p className='text-red-300' role="alert">{errors.password?.message}</p>}
                         <label className="label"><span className="label-text">Forget Password</span></label>
+                        <div className="form-control w-full max-w-xs">
+                        <select className="select select-bordered w-full max-w-xs">
+                            <option disabled selected>What type account you created?</option>
+                            <option>Buyer</option>
+                            <option>Seller</option>
+                        </select>
+                        </div>
                     </div>
-                    <input className='btn btn-accent w-full' value='signup' type="submit" />
+                    <input className='btn btn-accent w-full mt-2' value='signup' type="submit" />
                     {signUpError && <p className='text-red-600'>{signUpError}</p>}
                 </form>
 

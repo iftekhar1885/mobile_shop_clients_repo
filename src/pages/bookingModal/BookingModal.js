@@ -12,6 +12,7 @@ const BookingModal = ({ phone, setPhone }) => {
         const name = form.name.value;
         const email = form.email.value;
         const phone = form.phone.value;
+        const price = 
 
         console.log(name, email, phone);
         const booking = {
@@ -20,6 +21,8 @@ const BookingModal = ({ phone, setPhone }) => {
             phone,
             location,
             name,
+            resale_Price,
+
         }
 
         fetch('http://localhost:5000/bookings', {
