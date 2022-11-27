@@ -6,6 +6,7 @@ import { AuthContext } from '../../context/AuthProvider';
 import { FaGoogle } from 'react-icons/fa';
 
 import toast from 'react-hot-toast';
+import useToken from '../../hooks/UseToken';
 // import { Link, useNavigate } from 'react-router-dom';
 // import { AuthContext } from '../../Context/AuthProvider';
 // import useToken from '../../hooks/useToken';
@@ -14,9 +15,15 @@ const SignIn = () => {
 
     const { register, handleSubmit, formState: { errors } } = useForm();
     const { newUser, updateUser, signInWithGoogle } = useContext(AuthContext);
-    const [signUpError, setSignUpError] = useState('')
+    const [signUpError, setSignUpError] = useState('');
+    const [createdEmail, setCreatedEmail] = useState('')
+    const [token] = useToken(createdEmail);
 
     const navigate = useNavigate();
+
+    if(token){
+        navigate('/');
+    }
 
     const handleSIgnIn = (data) => {
         console.log(data);
@@ -31,7 +38,8 @@ const SignIn = () => {
                 }
                 updateUser(userInfo)
                     .then(() => {
-                        navigate('/');
+                        saveUser(data.name, data.email, data.role);
+                        
                     })
                     .catch(error => console.log(error));
             })
@@ -40,16 +48,36 @@ const SignIn = () => {
                 setSignUpError(error.message)
             });
     }
+    const saveUser = (name, email, role) =>{
+        const user = {name, email, role};
+        fetch(`http://localhost:5000/users`, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
 
+            },
+            body: JSON.stringify(user)
+        })
+        .then(res => res.json())
+        .then(data => {
+            setCreatedEmail(email)
+            
+            
+        })
+    }
+
+    
     const handleGoogleSignIn = () => {
         signInWithGoogle()
             .then(result => {
                 const user = result.user;
-                navigate('/');
+              
                 console.log(user);
             })
             .catch(error => console.error(error));
     }
+
+    
     return (
         <div className='h-[800px] flex justify-center items-center'>
 
@@ -87,10 +115,10 @@ const SignIn = () => {
                         {errors.password && <p className='text-red-300' role="alert">{errors.password?.message}</p>}
                         <label className="label"><span className="label-text">Forget Password</span></label>
                         <div className="form-control w-full max-w-xs">
-                        <select className="select select-bordered w-full max-w-xs">
-                            <option disabled selected>What type account you created?</option>
-                            <option>Buyer</option>
-                            <option>Seller</option>
+                        <select {...register("role")} className="select select-bordered w-full max-w-xs">
+                          
+                            <option value='buyer'>Buyer</option>
+                            <option value='seller'>Seller</option>
                         </select>
                         </div>
                     </div>

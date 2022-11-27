@@ -11,7 +11,7 @@ const Category = () => {
     return (
         <div className='grid gap-8 grid-cols-1 lg:grid-cols-3 mt-4 mx-6'>
             {
-             categories.map(category => <CategoryDetail
+             categories?.map(category => <CategoryDetail
              key={category._id}
              category={category}
              setPhone={setPhone}

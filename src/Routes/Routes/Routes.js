@@ -3,12 +3,14 @@ import DashBoardLayout from "../../LayOut/DashboardLayout/DashBoardLayout";
 import Main from "../../LayOut/Main";
 import Blog from "../../pages/Blog/Blog";
 import Category from "../../pages/Category/Category";
+import AllUsers from "../../pages/Dashboard/Allusers/AllUsers";
 import DashBoard from "../../pages/Dashboard/DashBoard/DashBoard";
 import MyAppointMent from "../../pages/Dashboard/MyAppointment/MyAppointMent";
 import Home from "../../pages/Home/Home/Home";
 import Services from "../../pages/Home/Home/Services/Services";
 import Login from "../../pages/Login/Login";
 import SignIn from "../../pages/SignIn/SignIn";
+import AdminRoute from "../AdminRoute/AdminRoute";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 export const router = createBrowserRouter([
@@ -53,6 +55,10 @@ export const router = createBrowserRouter([
         {
           path: '/dashboard',
           element: <MyAppointMent></MyAppointMent>
+        },
+        {
+          path: '/dashboard/allusers',
+          element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
         }
       ]
     }

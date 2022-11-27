@@ -4,7 +4,7 @@ import { FaGoogle } from 'react-icons/fa';
 import { Link, useLocation, useNavigate  } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 // import { AuthContext } from '../../../Context/AuthProvider';
-// import useToken from '../../../hooks/useToken';
+import useToken from '../../../src/hooks/UseToken';
 
 const Login = () => {
 
@@ -13,17 +13,17 @@ const Login = () => {
     const { register, handleSubmit, formState: {errors} } = useForm();
     const {logIn, signInWithGoogle} = useContext(AuthContext);
     const [loginError, setLoginError] = useState('');
-    //  const [loginUserEmail, setLoginEmail] = useState('');
-    //  const [token] = useToken(loginUserEmail);
+     const [loginUserEmail, setLoginEmail] = useState('');
+     const [token] = useToken(loginUserEmail);
 
     const location = useLocation();
     const navigate = useNavigate();
 
     const from = location.state?.from?.pathname || '/';
 
-    // if (token){
-    //     navigate(from, {replace: true});
-    // }
+    if (token){
+        navigate(from, {replace: true});
+    }
 
     const handleLogin = data =>{
         console.log(data);
@@ -32,8 +32,8 @@ const Login = () => {
         .then(result => {
             const user = result.user;
             console.log(user)
-            navigate(from, {replace: true});
-            // setLoginEmail(data.email);
+           
+            setLoginEmail(data.email);
             
         })
         .catch(error => {
