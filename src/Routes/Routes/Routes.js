@@ -8,7 +8,7 @@ import AllBuyers from "../../pages/Dashboard/AllBuyers/AllBuyers";
 import AllSeller from "../../pages/Dashboard/AllSeller/AllSeller";
 import AllUsers from "../../pages/Dashboard/Allusers/AllUsers";
 import DashBoard from "../../pages/Dashboard/DashBoard/DashBoard";
-import MyAppointMent from "../../pages/Dashboard/MyAppointment/MyAppointMent";
+import MyAppointMent from "../../pages/Dashboard/MyAppointment/MyProducts";
 import Home from "../../pages/Home/Home/Home";
 import Services from "../../pages/Home/Home/Services/Services";
 import Login from "../../pages/Login/Login";

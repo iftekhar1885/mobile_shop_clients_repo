@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import { AuthContext } from '../../../context/AuthProvider';
 
-const MyAppointMent = () => {
+const MyProducts = () => {
 
     const { user } = useContext(AuthContext);
 
@@ -23,8 +23,8 @@ const MyAppointMent = () => {
     })
     return (
         <div>
-            <h2>My Booking Order</h2>
-            <div className="overflow-x-auto">
+            <h2 className='text-3xl font-bold text-center mb-4'>My Orders</h2>
+            <div className="overflow-x-auto m-3">
                 <table className="table w-full">
 
                     <thead>
@@ -59,4 +59,4 @@ const MyAppointMent = () => {
     );
 };
 
-export default MyAppointMent;
+export default MyProducts;
