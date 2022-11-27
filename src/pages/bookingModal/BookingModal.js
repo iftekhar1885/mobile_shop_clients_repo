@@ -3,7 +3,7 @@ import toast from 'react-hot-toast';
 import { AuthContext } from '../../context/AuthProvider';
 
 const BookingModal = ({ phone, setPhone }) => {
-    const { title, author, resale_Price, mobile, location } = phone;
+    const { title,  resale_Price, location } = phone;
     const {user} = useContext(AuthContext);
 
     const handleBooking = event =>{
@@ -12,7 +12,7 @@ const BookingModal = ({ phone, setPhone }) => {
         const name = form.name.value;
         const email = form.email.value;
         const phone = form.phone.value;
-        const price = 
+        
 
         console.log(name, email, phone);
         const booking = {
