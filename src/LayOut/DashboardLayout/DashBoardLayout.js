@@ -29,7 +29,8 @@ const DashBoardLayout = () => {
                         </>
                        }
 
-                        <li><Link to='/dashboard/allusers'>My Whishlist</Link></li>
+                        <li><Link to='/dashboard/allseller'>All Seller</Link></li>
+                        <li><Link to='/dashboard/buyers'>All Buyer</Link></li>
                     </ul>
 
                 </div>

@@ -3,6 +3,8 @@ import DashBoardLayout from "../../LayOut/DashboardLayout/DashBoardLayout";
 import Main from "../../LayOut/Main";
 import Blog from "../../pages/Blog/Blog";
 import Category from "../../pages/Category/Category";
+import AllBuyers from "../../pages/Dashboard/AllBuyers/AllBuyers";
+import AllSeller from "../../pages/Dashboard/AllSeller/AllSeller";
 import AllUsers from "../../pages/Dashboard/Allusers/AllUsers";
 import DashBoard from "../../pages/Dashboard/DashBoard/DashBoard";
 import MyAppointMent from "../../pages/Dashboard/MyAppointment/MyAppointMent";
@@ -59,6 +61,14 @@ export const router = createBrowserRouter([
         {
           path: '/dashboard/allusers',
           element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
+        },
+        {
+          path: '/dashboard/allseller',
+          element: <AllSeller></AllSeller>
+        },
+        {
+          path: '/dashboard/buyers',
+          element: <AllBuyers></AllBuyers>
         }
       ]
     }
