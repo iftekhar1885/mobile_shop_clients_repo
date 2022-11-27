@@ -49,6 +49,12 @@ const DashBoardLayout = () => {
                             </>
                             
                         }
+                        {
+                            isSeller && <>
+                              <li><Link to='/dashboard/myproducts'>My Product</Link></li>
+                            </>
+                            
+                        }
                     </ul>
 
                 </div>

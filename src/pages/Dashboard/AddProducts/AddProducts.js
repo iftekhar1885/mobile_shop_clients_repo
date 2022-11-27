@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
+import { AuthContext } from '../../../context/AuthProvider';
 
 const AddProducts = () => {
+    const {user} = useContext(AuthContext)
 
     const handleAddProduct = event => {
         event.preventDefault();
         const form = event.target;
         const name = form.name.value;
+        const email = form.email.value;
         const photoURL = form.photoURL.value;
         const price = form.price.value;
         const previous = form.previous.value;
@@ -20,6 +23,7 @@ const AddProducts = () => {
         const createProduct = {
             product_name: name,
             image: photoURL,
+            email: email,
             price,
             previous,
             mobile,
@@ -59,6 +63,10 @@ const AddProducts = () => {
                         <span className="label-text">Product Name</span>
                     </label>
                     <input name='name' type="text" placeholder="Product Name" className="input input-bordered w-full" />
+                    <label className="label">
+                        <span className="label-text">Email</span>
+                    </label>
+                    <input name='email' type="text" placeholder="Your email" defaultValue={user?.email} className="input input-bordered w-full" />
                     <label className="label">
                         <span className="label-text">Service Image URl</span>
                     </label>

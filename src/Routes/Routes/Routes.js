@@ -7,10 +7,11 @@ import AddProducts from "../../pages/Dashboard/AddProducts/AddProducts";
 import AllBuyers from "../../pages/Dashboard/AllBuyers/AllBuyers";
 import AllSeller from "../../pages/Dashboard/AllSeller/AllSeller";
 import AllUsers from "../../pages/Dashboard/Allusers/AllUsers";
-import DashBoard from "../../pages/Dashboard/DashBoard/DashBoard";
-import MyAppointMent from "../../pages/Dashboard/MyAppointment/MyProducts";
+import MyProduct from "../../pages/Dashboard/MyAppointment/MyAllProducts";
+import MyAppointMent from "../../pages/Dashboard/MyAppointment/MyAllProducts";
+import MyProducts from "../../pages/Dashboard/MyProducts/MyProducts";
 import Home from "../../pages/Home/Home/Home";
-import Services from "../../pages/Home/Home/Services/Services";
+
 import Login from "../../pages/Login/Login";
 import SignIn from "../../pages/SignIn/SignIn";
 import AdminRoute from "../AdminRoute/AdminRoute";
@@ -27,11 +28,7 @@ export const router = createBrowserRouter([
             path: '/',
             element:<Home></Home>
         },
-        // {
-        //   path:'/services/:id',
-        //   element: <Services></Services>,
-        //   loader: ({params}) => fetch(`http://localhost:5000/category/${params.id}`)
-        // }, 
+        
         {
          path: '/category/:id',
          element: <Category></Category>,
@@ -76,7 +73,11 @@ export const router = createBrowserRouter([
         {
           path: '/dashboard/addproducts',
           element: <SellerRoute><AddProducts></AddProducts></SellerRoute>
-        }
+        },
+        {
+          path: '/dashboard/myproducts',
+          element: <SellerRoute><MyProducts></MyProducts></SellerRoute>
+        },
       ]
     }
 ])

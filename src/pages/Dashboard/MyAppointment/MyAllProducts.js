@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import { AuthContext } from '../../../context/AuthProvider';
 
-const MyProducts = () => {
+const MyAllProducts = () => {
 
     const { user } = useContext(AuthContext);
 
@@ -59,4 +59,4 @@ const MyProducts = () => {
     );
 };
 
-export default MyProducts;
+export default MyAllProducts;
