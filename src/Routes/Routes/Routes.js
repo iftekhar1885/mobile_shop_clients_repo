@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import DashBoardLayout from "../../LayOut/DashboardLayout/DashBoardLayout";
 import Main from "../../LayOut/Main";
+import AdsProducts from "../../pages/AdSProducts/AdsProducts";
 import Blog from "../../pages/Blog/Blog";
 import Category from "../../pages/Category/Category";
 import AddProducts from "../../pages/Dashboard/AddProducts/AddProducts";
@@ -36,6 +37,11 @@ export const router = createBrowserRouter([
         element: <Category></Category>,
         loader: ({ params }) => fetch(`https://mobile-shop-server.vercel.app/category?category_id=${params.id}`),
       },
+      // {
+      //   path:'/advirtise',
+      //   element: <AdsProducts></AdsProducts>,
+        // loader: () => fetch(`http://localhost:5000/addproduct`)
+      // },
 
 
       {

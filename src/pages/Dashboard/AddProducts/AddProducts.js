@@ -23,7 +23,7 @@ const AddProducts = () => {
 
         const createProduct = {
             title: name,
-            image_url: photoURL,
+            img: photoURL,
             email: email,
             original_price,
             year_use,

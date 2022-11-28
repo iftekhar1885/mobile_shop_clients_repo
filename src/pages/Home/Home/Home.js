@@ -1,4 +1,5 @@
 import React from 'react';
+import AdsProducts from '../../AdSProducts/AdsProducts';
 import Category from '../../Category/Category';
 import Banner from './Banner/Banner';
 import BrandBanner from './BrandBanner/BrandBanner';
@@ -11,6 +12,8 @@ const Home = () => {
             <Banner></Banner>
 
             <Services></Services>
+
+            <AdsProducts></AdsProducts>
 
             <BrandBanner></BrandBanner>
         </div>
