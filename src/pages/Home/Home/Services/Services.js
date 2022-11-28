@@ -1,23 +1,23 @@
-import {  useQuery } from '@tanstack/react-query';
+import { useQuery } from '@tanstack/react-query';
 import React, { useEffect, useState } from 'react';
 
 import ServiceCard from './ServiceCard';
 
 const Services = () => {
-    
-    const {data: services = []} = useQuery({
+
+    const { data: services = [] } = useQuery({
         queryKey: ['services'],
-        queryFn: () => fetch(`http://localhost:5000/services`)
-        .then(res => res.json())
+        queryFn: () => fetch(`https://mobile-shop-server.vercel.app/services`)
+            .then(res => res.json())
     })
 
-   
+
     // useEffect( () =>{
-    //     fetch(`http://localhost:5000/services`)
+    //     fetch(`https://mobile-shop-server.vercel.app/services`)
     //     .then(res => res.json())
     //     .then(data => setServices(data))
     // }, [])
-     
+
 
     return (
         <div className='mt-16'>
@@ -28,13 +28,13 @@ const Services = () => {
 
             </div>
             <div className='grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-4'>
-              {
-                services.map(service => <ServiceCard
-                key={service.id}
-                service={service}
-            
-                ></ServiceCard>)
-              }
+                {
+                    services.map(service => <ServiceCard
+                        key={service.id}
+                        service={service}
+
+                    ></ServiceCard>)
+                }
             </div>
         </div>
     );

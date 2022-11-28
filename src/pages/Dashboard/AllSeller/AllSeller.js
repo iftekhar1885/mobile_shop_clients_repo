@@ -6,7 +6,7 @@ const AllSeller = () => {
     const { data: users = [] } = useQuery({
         queryKey: ['sellers'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/users`);
+            const res = await fetch(`https://mobile-shop-server.vercel.app/users`);
             const data = await res.json();
             return data;
         }
@@ -31,13 +31,15 @@ const AllSeller = () => {
                     <tbody>
 
                         {
-                            users.map((user, i) => {return user.role === 'seller' && <tr key={user._id}>
-                            <td>{i + 1}</td>
-                            <td>{user.name}</td>
-                            <td>{user.email}</td>
-                            <td>{user.price}</td>
+                            users.map((user, i) => {
+                                return user.role === 'seller' && <tr key={user._id}>
+                                    <td>{i + 1}</td>
+                                    <td>{user.name}</td>
+                                    <td>{user.email}</td>
+                                    <td>{user.price}</td>
 
-                        </tr>})
+                                </tr>
+                            })
                         }
 
 

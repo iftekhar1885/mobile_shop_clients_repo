@@ -3,7 +3,7 @@ import toast from 'react-hot-toast';
 import { AuthContext } from '../../../context/AuthProvider';
 
 const AddProducts = () => {
-    const {user} = useContext(AuthContext)
+    const { user } = useContext(AuthContext)
 
     const handleAddProduct = event => {
         event.preventDefault();
@@ -18,7 +18,7 @@ const AddProducts = () => {
         const condition = form.condition.value;
         const location = form.location.value;
 
-        console.log(name, price, mobile,previous, description, condition, location);
+        console.log(name, price, mobile, previous, description, condition, location);
 
         const createProduct = {
             product_name: name,
@@ -30,9 +30,9 @@ const AddProducts = () => {
             description,
             condition,
             location,
-            
+
         }
-        fetch(`http://localhost:5000/sells`, {
+        fetch(`https://mobile-shop-server.vercel.app/sells`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -40,15 +40,15 @@ const AddProducts = () => {
             body: JSON.stringify(createProduct)
 
         })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data)
-            if(data.acknowledged){
-                toast.success('Add Product Succesfully');
-                form.reset();
-            }
-        })
-        .catch(er => console.error(er));
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.acknowledged) {
+                    toast.success('Add Product Succesfully');
+                    form.reset();
+                }
+            })
+            .catch(er => console.error(er));
 
 
     }
@@ -70,8 +70,8 @@ const AddProducts = () => {
                     <label className="label">
                         <span className="label-text">Service Image URl</span>
                     </label>
-                    <input name='photoURL' type="text" placeholder="Your photo url" className="input input-bordered w-full"/>
-                    
+                    <input name='photoURL' type="text" placeholder="Your photo url" className="input input-bordered w-full" />
+
                     <label className="label">
                         <span className="label-text">Product Price</span>
                     </label>
@@ -80,22 +80,22 @@ const AddProducts = () => {
                         <span className="label-text">Mobile Number</span>
                     </label>
                     <input name='number' type="text" placeholder="Please give your number" className="input input-bordered w-full" />
-                     <label className="label">
+                    <label className="label">
                         <span className="label-text">Year Of Use</span>
                     </label>
-                    <input name='previous' type="text" placeholder="year of use" className="input input-bordered w-full" /> 
-                 <label className="label">
+                    <input name='previous' type="text" placeholder="year of use" className="input input-bordered w-full" />
+                    <label className="label">
                         <span className="label-text">Description</span>
                     </label>
-                    <textarea name='message' type='text' className="textarea textarea-bordered w-full" placeholder="Product Description" required></textarea> 
-                     <label className="label">
+                    <textarea name='message' type='text' className="textarea textarea-bordered w-full" placeholder="Product Description" required></textarea>
+                    <label className="label">
                         <span className="label-text">Condition</span>
                     </label>
-                    <textarea name='condition'  type='text' className="textarea textarea-bordered w-full" placeholder="condition" required></textarea> 
+                    <textarea name='condition' type='text' className="textarea textarea-bordered w-full" placeholder="condition" required></textarea>
                     <label className="label">
                         <span className="label-text">Location</span>
                     </label>
-                    <textarea name='location'  type='text' className="textarea textarea-bordered w-full" placeholder="Your Location" required></textarea>  
+                    <textarea name='location' type='text' className="textarea textarea-bordered w-full" placeholder="Your Location" required></textarea>
                     <br />
                     <input className='btn m-3 w-full' type='submit' value='ADD PRODUCT'></input>
                 </div>

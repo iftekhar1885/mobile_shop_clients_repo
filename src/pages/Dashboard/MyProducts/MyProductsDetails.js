@@ -1,26 +1,26 @@
 import React, { useState } from 'react';
 
-const MyProductsDetails = ({product}) => {
+const MyProductsDetails = ({ product }) => {
     const [deleteProduct, setDeleteProduct] = useState([])
 
-    const {_id, product_name, image, price, previous, mobile, description, condition, location} = product;
+    const { _id, product_name, image, price, previous, mobile, description, condition, location } = product;
 
-    const handleDelete = id =>{
+    const handleDelete = id => {
         const proceed = window.confirm('Are you sure, you want to delete this products')
-        if(proceed){
-            fetch(`http://localhost:5000/sell/${id}`, {
+        if (proceed) {
+            fetch(`https://mobile-shop-server.vercel.app/sell/${id}`, {
                 method: 'DELETE'
 
             })
-            .then(res => res.json())
-            .then(data =>{
-                console.log(data);
-                if(data.deletedCount > 0){
-                    alert('deleted successfully');
-                    const remaining = deleteProduct.filter(details => details._id !== id);
-                    setDeleteProduct(remaining);
-                }
-            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    if (data.deletedCount > 0) {
+                        alert('deleted successfully');
+                        const remaining = deleteProduct.filter(details => details._id !== id);
+                        setDeleteProduct(remaining);
+                    }
+                })
         }
     }
 
@@ -29,7 +29,7 @@ const MyProductsDetails = ({product}) => {
             <figure><img src={image} alt="Shoes" /></figure>
             <div className="card-body">
                 <h2 className="card-title">
-                     {product_name}
+                    {product_name}
                     <div className="badge badge-secondary">NEW</div>
                 </h2>
                 <p className='font-bold text-rose-700'>Sell Price: ${price}</p>

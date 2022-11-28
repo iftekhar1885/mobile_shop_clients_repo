@@ -20,66 +20,66 @@ import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import SellerRoute from "../SellerRoutes/SellerRoutes";
 
 export const router = createBrowserRouter([
-    {
-      path:'/',
-      element:<Main></Main>,
-      children: [
-        {
-            path: '/',
-            element:<Home></Home>
-        },
-        
-        {
-         path: '/category/:id',
-         element: <Category></Category>,
-         loader: ({params}) => fetch(`http://localhost:5000/category?category_id=${params.id}`),
-        },
+  {
+    path: '/',
+    element: <Main></Main>,
+    children: [
+      {
+        path: '/',
+        element: <Home></Home>
+      },
 
-        
-        {
-            path: '/login',
-            element:<Login></Login>
-        },
-        {
-            path: '/signin',
-            element: <SignIn></SignIn>
-        },
-        {
-          path: '/blog',
-          element: <Blog></Blog>
-        }
-      ]
-    },
-    {
-      path: '/dashboard',
-      element: <PrivateRoute><DashBoardLayout></DashBoardLayout></PrivateRoute>,
-      children: [
-        {
-          path: '/dashboard',
-          element: <MyAppointMent></MyAppointMent>
-        },
-        {
-          path: '/dashboard/allusers',
-          element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
-        },
-        {
-          path: '/dashboard/allseller',
-          element: <SellerRoute> <AllSeller></AllSeller></SellerRoute>
-        },
-        {
-          path: '/dashboard/buyers',
-          element: <BuyerRoute><AllBuyers></AllBuyers></BuyerRoute>
-        },
-        {
-          path: '/dashboard/addproducts',
-          element: <SellerRoute><AddProducts></AddProducts></SellerRoute>
-        },
-        {
-          path: '/dashboard/myproducts',
-          element: <SellerRoute><MyProducts></MyProducts></SellerRoute>
-        },
-      ]
-    }
+      {
+        path: '/category/:id',
+        element: <PrivateRoute><Category></Category></PrivateRoute>,
+        loader: ({ params }) => fetch(`https://mobile-shop-server.vercel.app/category?category_id=${params.id}`),
+      },
+
+
+      {
+        path: '/login',
+        element: <Login></Login>
+      },
+      {
+        path: '/signin',
+        element: <SignIn></SignIn>
+      },
+      {
+        path: '/blog',
+        element: <Blog></Blog>
+      }
+    ]
+  },
+  {
+    path: '/dashboard',
+    element: <PrivateRoute><DashBoardLayout></DashBoardLayout></PrivateRoute>,
+    children: [
+      {
+        path: '/dashboard',
+        element: <MyAppointMent></MyAppointMent>
+      },
+      {
+        path: '/dashboard/allusers',
+        element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
+      },
+      {
+        path: '/dashboard/allseller',
+        element: <SellerRoute> <AllSeller></AllSeller></SellerRoute>
+      },
+      {
+        path: '/dashboard/buyers',
+        element: <BuyerRoute><AllBuyers></AllBuyers></BuyerRoute>
+      },
+      {
+        path: '/dashboard/addproducts',
+        element: <SellerRoute><AddProducts></AddProducts></SellerRoute>
+      },
+      {
+        path: '/dashboard/myproducts',
+        element: <SellerRoute><MyProducts></MyProducts></SellerRoute>
+      },
+    ]
+  }
 ])
 
 export default router;

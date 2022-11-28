@@ -6,13 +6,13 @@ const MyAllProducts = () => {
 
     const { user } = useContext(AuthContext);
 
-    const url = `http://localhost:5000/bookings?email=${user?.email}`
+    const url = `https://mobile-shop-server.vercel.app/bookings?email=${user?.email}`
 
     const { data: bookings = [] } = useQuery({
         queryKey: ['bookings', user?.email],
         queryFn: async () => {
             const res = await fetch(url, {
-                headers:{
+                headers: {
                     authorization: `bearer ${localStorage.getItem('accessToken')}`
                 }
             });
@@ -34,7 +34,7 @@ const MyAllProducts = () => {
                             <th>title</th>
                             <th>Price</th>
                             <th>pay</th>
-                            
+
                         </tr>
                     </thead>
                     <tbody>
@@ -42,11 +42,11 @@ const MyAllProducts = () => {
                             bookings &&
                             bookings?.map((booking, i) => <tr key={booking?._id}>
 
-                                <th>{i+1}</th>
+                                <th>{i + 1}</th>
                                 <td>{booking.name}</td>
                                 <td>{booking.title}</td>
                                 <td>{booking.resale_Price}</td>
-                                
+
 
                             </tr>)
                         }

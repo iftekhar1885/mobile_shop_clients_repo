@@ -21,7 +21,7 @@ const SignIn = () => {
 
     const navigate = useNavigate();
 
-    if(token){
+    if (token) {
         navigate('/');
     }
 
@@ -39,7 +39,7 @@ const SignIn = () => {
                 updateUser(userInfo)
                     .then(() => {
                         saveUser(data.name, data.email, data.role);
-                        
+
                     })
                     .catch(error => console.log(error));
             })
@@ -48,9 +48,9 @@ const SignIn = () => {
                 setSignUpError(error.message)
             });
     }
-    const saveUser = (name, email, role) =>{
-        const user = {name, email, role};
-        fetch(`http://localhost:5000/users`, {
+    const saveUser = (name, email, role) => {
+        const user = { name, email, role };
+        fetch(`https://mobile-shop-server.vercel.app/users`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -58,26 +58,26 @@ const SignIn = () => {
             },
             body: JSON.stringify(user)
         })
-        .then(res => res.json())
-        .then(data => {
-            setCreatedEmail(email)
-            
-            
-        })
+            .then(res => res.json())
+            .then(data => {
+                setCreatedEmail(email)
+
+
+            })
     }
 
-    
+
     const handleGoogleSignIn = () => {
         signInWithGoogle()
             .then(result => {
                 const user = result.user;
-              
+
                 console.log(user);
             })
             .catch(error => console.error(error));
     }
 
-    
+
     return (
         <div className='h-[800px] flex justify-center items-center'>
 
@@ -115,11 +115,11 @@ const SignIn = () => {
                         {errors.password && <p className='text-red-300' role="alert">{errors.password?.message}</p>}
                         <label className="label"><span className="label-text">Forget Password</span></label>
                         <div className="form-control w-full max-w-xs">
-                        <select {...register("role")} className="select select-bordered w-full max-w-xs">
-                          
-                            <option value='buyer'>Buyer</option>
-                            <option value='seller'>Seller</option>
-                        </select>
+                            <select {...register("role")} className="select select-bordered w-full max-w-xs">
+
+                                <option value='buyer'>Buyer</option>
+                                <option value='seller'>Seller</option>
+                            </select>
                         </div>
                     </div>
                     <input className='btn btn-accent w-full mt-2' value='signup' type="submit" />
