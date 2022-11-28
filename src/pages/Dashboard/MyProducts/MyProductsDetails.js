@@ -65,9 +65,13 @@ const MyProductsDetails = ({ product }) => {
                         className="btn btn-info"
                     >Advertise</button>
                     <button onClick={() => handleDelete(_id)} className="btn btn-accent">Delete</button>
+                    <button className="btn btn-info">Status</button>
                 </div>
             </div>
         </div>
+
+
+
     );
 };
 

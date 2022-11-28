@@ -16,10 +16,10 @@ const MyProducts = () => {
     }, [user?.email])
     return (
         <div>
-            <h2 className='text-3xl font-bold mt-3 text-center'>You Added {products.length} Products</h2>
+            <h2 className='text-3xl font-bold mt-3 text-center'>Seller Added {products.length} Products</h2>
 
             <div className='grid grid-cols-1 gap-5 lg:grid-cols-2 m-5 sm:grid-cols-1 shadow-xl'>
-
+             
                 {
                     products.map(product => <MyProductsDetails
 

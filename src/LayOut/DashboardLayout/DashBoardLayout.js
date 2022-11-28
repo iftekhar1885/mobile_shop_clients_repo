@@ -6,6 +6,7 @@ import useAdmin from '../../hooks/UseAdmin';
 import useBuyer from '../../hooks/useBuyer/UseBuyer';
 import useSeller from '../../hooks/UseSeller';
 
+
 const DashBoardLayout = () => {
 
     const { user } = useContext(AuthContext);
@@ -27,7 +28,7 @@ const DashBoardLayout = () => {
                     <ul className="menu p-4 w-80 text-base-content bg-green-500">
 
                         {
-                            isBuyer && <>
+                            isBuyer &&  <>
                                 <li><Link to='/dashboard/myallproducts'>My Orders</Link></li>
                             </>
                         }
@@ -38,13 +39,8 @@ const DashBoardLayout = () => {
                             </>
                         }
 
-                        {/* {
-                            isSeller && <>
-                                <li><Link to='/dashboard/allseller'>All Seller</Link></li>
-                            </>
-                        } */}
                         {
-                            isBuyer && <>
+                          isBuyer &&  <>
                                 <li><Link to='/dashboard/buyers'>All Buyer</Link></li>
                             </>
                         }
@@ -59,6 +55,11 @@ const DashBoardLayout = () => {
                                 <li><Link to='/dashboard/myproducts'>My Product</Link></li>
                             </>
 
+                        }
+                        {
+                            isBuyer && <>
+                               <li><Link to='/dashboard/myorders'>Orders</Link></li>
+                            </>
                         }
                     </ul>
 
