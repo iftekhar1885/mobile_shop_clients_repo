@@ -31,7 +31,7 @@ export const router = createBrowserRouter([
 
       {
         path: '/category/:id',
-        element: <PrivateRoute><Category></Category></PrivateRoute>,
+        element: <Category></Category>,
         loader: ({ params }) => fetch(`https://mobile-shop-server.vercel.app/category?category_id=${params.id}`),
       },
 
@@ -56,7 +56,7 @@ export const router = createBrowserRouter([
     children: [
       {
         path: '/dashboard',
-        element: <MyAppointMent></MyAppointMent>
+        element: <BuyerRoute><MyAppointMent></MyAppointMent></BuyerRoute>,
       },
       {
         path: '/dashboard/allusers',

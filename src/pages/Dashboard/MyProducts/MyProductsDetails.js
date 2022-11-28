@@ -39,7 +39,7 @@ const MyProductsDetails = ({ product }) => {
                 <p>location: {location}</p>
                 <p className='text-blue-400'>{description}</p>
                 <div className="card-actions justify-end">
-                    <div className="badge badge-outline">Edit</div>
+                    <div className="badge badge-outline">Advertise</div>
                     <div onClick={() => handleDelete(_id)} className="badge badge-outline">Delete</div>
                 </div>
             </div>
