@@ -31,9 +31,10 @@ const MyAllProducts = () => {
                         <tr>
                             <th></th>
                             <th>Name</th>
-                            <th>title</th>
+                            <th>Email</th>
+                            <th>Number</th>
                             <th>Price</th>
-                            <th>pay</th>
+                            <th>Location</th>
 
                         </tr>
                     </thead>
@@ -44,8 +45,10 @@ const MyAllProducts = () => {
 
                                 <th>{i + 1}</th>
                                 <td>{booking.name}</td>
-                                <td>{booking.title}</td>
+                                <td>{booking.email}</td>
+                                <td>{booking.phone}</td>
                                 <td>{booking.resale_Price}</td>
+                                <td>{booking.location}</td>
 
 
                             </tr>)

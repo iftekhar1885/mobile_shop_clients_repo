@@ -52,11 +52,11 @@ export const router = createBrowserRouter([
   },
   {
     path: '/dashboard',
-    element: <PrivateRoute><DashBoardLayout></DashBoardLayout></PrivateRoute>,
+    element: <DashBoardLayout></DashBoardLayout>,
     children: [
       {
         path: '/dashboard',
-        element: <BuyerRoute><MyAppointMent></MyAppointMent></BuyerRoute>,
+        element: <MyAppointMent></MyAppointMent>,
       },
       {
         path: '/dashboard/allusers',
