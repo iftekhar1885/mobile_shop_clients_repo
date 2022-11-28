@@ -3,12 +3,12 @@ import React from 'react';
 const CategoryDetail = ({ category, setPhone }) => {
 
     const { title,
-         img, author, location, original_price, resale_Price, year_use } = category;
+         img, location, original_price, resale_Price, year_use } = category;
     return (
         <div>
             <div className="card w-96 bg-base-100 shadow-xl ">
-                <div className='flex'>
-                    <div>
+                {/* <div className='flex'>
+                    {/* <div>
                         <img
                             className='mx-6'
                             rounded
@@ -16,14 +16,14 @@ const CategoryDetail = ({ category, setPhone }) => {
                             style={{ height: '40px' }}
                             alt='' />
 
-                    </div>
-                    <div>
+                    </div> */}
+                    {/* <div>
                         <p className='ml-3'>{author.name}</p>
                         <p className='ml-3'>{author.published_date}</p>
-                    </div>
+                    </div> */}
 
 
-                </div>
+                {/* </div>  */}
 
                 <figure className="px-10 pt-10">
                     <img src={img} alt="" className="rounded-xl w-1/2" />

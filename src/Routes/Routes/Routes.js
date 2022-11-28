@@ -7,6 +7,7 @@ import AddProducts from "../../pages/Dashboard/AddProducts/AddProducts";
 import AllBuyers from "../../pages/Dashboard/AllBuyers/AllBuyers";
 import AllSeller from "../../pages/Dashboard/AllSeller/AllSeller";
 import AllUsers from "../../pages/Dashboard/Allusers/AllUsers";
+import MyAllProducts from "../../pages/Dashboard/MyAppointment/MyAllProducts";
 import MyProduct from "../../pages/Dashboard/MyAppointment/MyAllProducts";
 import MyAppointMent from "../../pages/Dashboard/MyAppointment/MyAllProducts";
 import MyProducts from "../../pages/Dashboard/MyProducts/MyProducts";
@@ -55,7 +56,7 @@ export const router = createBrowserRouter([
     element: <DashBoardLayout></DashBoardLayout>,
     children: [
       {
-        path: '/dashboard',
+        path: '/dashboard/myallproducts',
         element: <MyAppointMent></MyAppointMent>,
       },
       {
@@ -64,7 +65,7 @@ export const router = createBrowserRouter([
       },
       {
         path: '/dashboard/allseller',
-        element: <SellerRoute> <AllSeller></AllSeller></SellerRoute>
+        element: <SellerRoute><AllSeller></AllSeller></SellerRoute>
       },
       {
         path: '/dashboard/buyers',
@@ -78,6 +79,10 @@ export const router = createBrowserRouter([
         path: '/dashboard/myproducts',
         element: <SellerRoute><MyProducts></MyProducts></SellerRoute>
       },
+      {
+        path:'/dashboard/myallproducts',
+        element:<BuyerRoute><MyAllProducts></MyAllProducts></BuyerRoute>,
+      }
     ]
   }
 ])

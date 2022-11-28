@@ -11,25 +11,27 @@ const AddProducts = () => {
         const name = form.name.value;
         const email = form.email.value;
         const photoURL = form.photoURL.value;
-        const price = form.price.value;
-        const previous = form.previous.value;
+        const original_price = form.price.value;
+        const year_use = form.previous.value;
         const mobile = form.number.value;
-        const description = form.message.value;
+        const details = form.message.value;
         const condition = form.condition.value;
         const location = form.location.value;
+        const category_id = form.id.value;
 
-        console.log(name, price, mobile, previous, description, condition, location);
+        // console.log(name, price, mobile, previous, description, condition,category_id, location);
 
         const createProduct = {
-            product_name: name,
-            image: photoURL,
+            title: name,
+            image_url: photoURL,
             email: email,
-            price,
-            previous,
+            original_price,
+            year_use,
             mobile,
-            description,
+            details,
             condition,
             location,
+            category_id,
 
         }
         fetch(`https://mobile-shop-server.vercel.app/sells`, {
@@ -96,6 +98,14 @@ const AddProducts = () => {
                         <span className="label-text">Location</span>
                     </label>
                     <textarea name='location' type='text' className="textarea textarea-bordered w-full" placeholder="Your Location" required></textarea>
+                    <div className="form-control w-full max-w-xs">
+                            <select name='id' className="select select-bordered w-full max-w-xs">
+
+                                <option value='01'>Iphone</option>
+                                <option value='02'>Realme</option>
+                                <option value='03'>Oppo</option>
+                            </select>
+                        </div>
                     <br />
                     <input className='btn m-3 w-full' type='submit' value='ADD PRODUCT'></input>
                 </div>
