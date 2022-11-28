@@ -1,8 +1,8 @@
 import React from 'react';
 
-const AdsProductCard = ({product}) => {
+const AdsProductCard = ({product, setAdsProduct}) => {
 
-    const { img, location, original_price, year_use, mobile, condition, details } = product;
+    const { img, location, original_price, year_use, mobile, condition, details, title } = product;
     console.log(product);
     return (
         <div className="card w-96 bg-base-100 shadow-xl mt-20">
@@ -14,17 +14,19 @@ const AdsProductCard = ({product}) => {
             </h2>
             <p className='font-bold text-rose-700'>Sell Price: ${original_price}</p>
             <p className='font-bold text-rose-700'>Year use: {year_use}</p>
-            <p className='font-bold text-red-700'>Contact No: {mobile}</p> 
+            {/* <p className='font-bold text-red-700'>Contact No: {mobile}</p>  */}
             <p>Condition: {condition}</p>
             <p>location: {location}</p>
             <p className='text-blue-400'>{details}</p>
-           {/* <div className="card-actions justify-end">
-                <button
-                onClick={() => handleAdvirtice(_id)}
-                className="btn btn-info"
-                 >Advertise</button>
-                <button onClick={() => handleDelete(_id)} className="btn btn-accent">Delete</button>
-            </div> */}
+            <div className="card-actions">
+                    
+                    <label
+                     htmlFor="booking-modal" 
+                     className="btn btn-primary text-yellow-50"
+                     onClick={() => setAdsProduct(product)}
+                     >Book Now</label>
+                </div>
+           
          </div>
     </div>
     );

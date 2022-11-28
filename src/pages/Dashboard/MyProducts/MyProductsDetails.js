@@ -25,24 +25,24 @@ const MyProductsDetails = ({ product }) => {
         }
     }
 
-    const handleAdvirtice = id =>{
-        fetch(`http://localhost:5000/sell/${id}`, 
-        {
-            method: 'PUT',
-            headers: {
-                'content-type': 'application/json'
-            },      
-           
-        })
-        .then(res =>res.json())
-        .then(data => {
-            console.log(data);
-            if (data.acknowledged){
-                toast.success('product added in advirtise');
-            }
+    const handleAdvirtice = id => {
+        fetch(`https://mobile-shop-server.vercel.app/sell/${id}`,
+            {
+                method: 'PUT',
+                headers: {
+                    'content-type': 'application/json'
+                },
 
-        })
-        .catch(err => console.error(err));
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.acknowledged) {
+                    toast.success('product added in advirtise');
+                }
+
+            })
+            .catch(err => console.error(err));
     }
 
     return (
@@ -61,9 +61,9 @@ const MyProductsDetails = ({ product }) => {
                 <p className='text-blue-400'>{details}</p>
                 <div className="card-actions justify-end">
                     <button
-                    onClick={() => handleAdvirtice(_id)}
-                    className="btn btn-info"
-                     >Advertise</button>
+                        onClick={() => handleAdvirtice(_id)}
+                        className="btn btn-info"
+                    >Advertise</button>
                     <button onClick={() => handleDelete(_id)} className="btn btn-accent">Delete</button>
                 </div>
             </div>

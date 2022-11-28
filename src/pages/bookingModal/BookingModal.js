@@ -11,14 +11,14 @@ const BookingModal = ({ phone, setPhone }) => {
         const form = event.target;
         const name = form.name.value;
         const email = form.email.value;
-        const phone = form.phone.value;
+        const mobile = form.phone.value;
 
 
         console.log(name, email, phone);
         const booking = {
             title,
             email,
-            phone,
+            mobile,
             location,
             name,
             resale_Price,

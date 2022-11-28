@@ -40,7 +40,7 @@ export const router = createBrowserRouter([
       // {
       //   path:'/advirtise',
       //   element: <AdsProducts></AdsProducts>,
-        // loader: () => fetch(`http://localhost:5000/addproduct`)
+      // loader: () => fetch(`https://mobile-shop-server.vercel.app/addproduct`)
       // },
 
 
@@ -88,8 +88,8 @@ export const router = createBrowserRouter([
         element: <SellerRoute><MyProducts></MyProducts></SellerRoute>
       },
       {
-        path:'/dashboard/myallproducts',
-        element:<BuyerRoute><MyAllProducts></MyAllProducts></BuyerRoute>,
+        path: '/dashboard/myallproducts',
+        element: <BuyerRoute><MyAllProducts></MyAllProducts></BuyerRoute>,
       }
     ]
   }

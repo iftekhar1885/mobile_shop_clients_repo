@@ -1,14 +1,16 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import React, { useState } from 'react';
 
 import AdsProductCard from '../AdsProductsCard/AdsProductCard';
+import BookingModal from '../bookingModal/BookingModal';
 
 const AdsProducts = () => {
+    const [adsProduct, setAdsProduct] = useState(null);
 
 
     const { data: addproduct = [] } = useQuery({
         queryKey: ['addproduct'],
-        queryFn: () => fetch(`http://localhost:5000/addproduct`)
+        queryFn: () => fetch(`https://mobile-shop-server.vercel.app/addproduct`)
             .then(res => res.json())
     })
     return (
@@ -25,9 +27,17 @@ const AdsProducts = () => {
                     addproduct?.map(product => <AdsProductCard
                         key={product?.id}
                         product={product}
-
+                        setAdsProduct={setAdsProduct}
                     ></AdsProductCard>)
                 }
+                {
+
+                    adsProduct &&
+                    <BookingModal
+                        adsProduct={adsProduct}
+                        setAdsProduct={setAdsProduct}
+                    ></BookingModal>}
+
             </div>
         </div>
     );
