@@ -24,6 +24,18 @@ const MyProductsDetails = ({ product }) => {
         }
     }
 
+    // const handleAdvirtice = id =>{
+    //     fetch(`http://localhost:5000/sell/${id}`, 
+    //     {
+    //         method: 'PUT',
+    //         headers: {
+    //             'content-type': 'application/json'
+    //         },
+    //         body: JSON.stringify(create)
+           
+    //     })
+    // }
+
     return (
         <div className="card w-96 bg-base-100 shadow-xl mt-20">
             <figure><img src={img} alt="Shoes" /></figure>
@@ -39,8 +51,11 @@ const MyProductsDetails = ({ product }) => {
                 <p>location: {location}</p>
                 <p className='text-blue-400'>{details}</p>
                 <div className="card-actions justify-end">
-                    <div className="badge badge-outline">Advertise</div>
-                    <div onClick={() => handleDelete(_id)} className="badge badge-outline">Delete</div>
+                    {/* <div
+                    onClick={() => handleAdvirtice(_id)}
+                     className="badge badge-outline"
+                     >Advertise</div> */}
+                    <div onClick={() => handleDelete(_id)} className="btn btn-accent">Delete</div>
                 </div>
             </div>
         </div>

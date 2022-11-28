@@ -15,15 +15,16 @@ import Home from "../../pages/Home/Home/Home";
 
 import Login from "../../pages/Login/Login";
 import SignIn from "../../pages/SignIn/SignIn";
+import DisPlayError from "../../Shared/DisplayError/DisPlayError";
 import AdminRoute from "../AdminRoute/AdminRoute";
 import BuyerRoute from "../BuyerRoute/BuyerRoute";
-import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import SellerRoute from "../SellerRoutes/SellerRoutes";
 
 export const router = createBrowserRouter([
   {
     path: '/',
     element: <Main></Main>,
+    errorElement: <DisPlayError></DisPlayError>,
     children: [
       {
         path: '/',
@@ -54,6 +55,7 @@ export const router = createBrowserRouter([
   {
     path: '/dashboard',
     element: <DashBoardLayout></DashBoardLayout>,
+    errorElement: <DisPlayError></DisPlayError>,
     children: [
       {
         path: '/dashboard/myallproducts',
