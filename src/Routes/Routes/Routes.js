@@ -83,7 +83,7 @@ export const router = createBrowserRouter([
         element: <Buyers></Buyers>,
       },
       {
-        path: '/dashboard/buyers',
+        path: '/dashboard/orders',
         element: <AllBuyers></AllBuyers>
       },
       {
