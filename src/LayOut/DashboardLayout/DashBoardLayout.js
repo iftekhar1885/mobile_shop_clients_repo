@@ -29,38 +29,32 @@ const DashBoardLayout = () => {
 
                         {
                             isBuyer &&  <>
-                                <li><Link to='/dashboard/myallproducts'>My Orders</Link></li>
+                                <li><Link to='/dashboard/buyers'>My Orders</Link></li>
+                               
+                               
                             </>
                         }
 
                         {
                             isAdmin && <>
-                                <li><Link to='/dashboard/allusers'>All Users</Link></li>
+                               
+                                <li><Link to='/dashboard/allseller'>All Seller</Link></li>
+                                <li><Link to='/dashboard/buyers'>All Buyer</Link></li>
+                                <li><Link to='/dashboard/report'>Report To Admin</Link></li>
                             </>
                         }
 
-                        {
-                          isBuyer &&  <>
-                                <li><Link to='/dashboard/buyers'>All Buyer</Link></li>
-                            </>
-                        }
+                    
                         {
                             isSeller && <>
                                 <li><Link to='/dashboard/addproducts'>Add Product</Link></li>
-                            </>
-
-                        }
-                        {
-                            isSeller && <>
                                 <li><Link to='/dashboard/myproducts'>My Product</Link></li>
                             </>
 
                         }
-                        {
-                            isBuyer && <>
-                               <li><Link to='/dashboard/myorders'>Orders</Link></li>
-                            </>
-                        }
+                      
+                      {/* <li><Link to='/dashboard/addproducts'>Add Product</Link></li>
+                     <li><Link to='/dashboard/myproducts'>My Product</Link></li> */}
                     </ul>
 
                 </div>
