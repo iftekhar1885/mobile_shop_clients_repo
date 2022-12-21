@@ -46,8 +46,8 @@ const AllBuyers = () => {
                         bookings?.map((booking, i) => <tr key={booking?._id}>
 
                             <th>{i + 1}</th>
-                            <td>{booking.title}</td>
                             <td>{booking.name}</td>
+                            <td>{booking.title}</td>
                             <td>{booking.phone}</td>
                             <td>{booking.resale_Price}</td>
                             <td>Pay</td>

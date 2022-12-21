@@ -9,7 +9,6 @@ import Category from "../../pages/Category/Category";
 import AddProducts from "../../pages/Dashboard/AddProducts/AddProducts";
 import AllBuyers from "../../pages/Dashboard/AllBuyers/AllBuyers";
 import AllSeller from "../../pages/Dashboard/AllSeller/AllSeller";
-import AllUsers from "../../pages/Dashboard/Allusers/AllUsers";
 import MyAllProducts from "../../pages/Dashboard/MyAppointment/MyAllProducts";
 
 import MyAppointMent from "../../pages/Dashboard/MyAppointment/MyAllProducts";
@@ -20,9 +19,7 @@ import Login from "../../pages/Login/Login";
 import ReportToAdmin from "../../pages/ReportToAdmin/ReportToAdmin";
 import SignIn from "../../pages/SignIn/SignIn";
 import DisPlayError from "../../Shared/DisplayError/DisPlayError";
-import AdminRoute from "../AdminRoute/AdminRoute";
-import BuyerRoute from "../BuyerRoute/BuyerRoute";
-import SellerRoute from "../SellerRoutes/SellerRoutes";
+
 
 export const router = createBrowserRouter([
   {
@@ -70,10 +67,10 @@ export const router = createBrowserRouter([
         path: '/dashboard',
         element: <MyAppointMent></MyAppointMent>,
       },
-      {
-        path: '/dashboard/allusers',
-        element: <AllUsers></AllUsers>,
-      },
+      // {
+      //   path: '/dashboard/allusers',
+      //   element: <AllUsers></AllUsers>,
+      // },
       {
         path: '/dashboard/allseller',
         element: <AllSeller></AllSeller>

@@ -56,49 +56,52 @@ const AddProducts = () => {
     }
 
     return (
-        <div className='w-96 p-7'>
+        <div className='w-full p-2 mt-5 mb-10'>
             <h3 className='text-3xl text-center mt-5 font-bold'>Add Products</h3>
 
-            <form className='grid justify-items-center' onSubmit={handleAddProduct}>
-                <div className='grid justify-items-center gap-4 m-3 shadow-lg rounded-lg p-5 mb-0 bg-yellow-400 w-full'>
+            <form className='grid mt-5' onSubmit={handleAddProduct}>
+                <div className='grid justify-items-center gap-2 shadow-lg rounded-lg mb-0 bg-yellow-400 w-full'>
                     <label className="label">
                         <span className="label-text">Product Name</span>
                     </label>
-                    <input name='name' type="text" placeholder="Product Name" className="input input-bordered w-full" />
+                    <input name='name' type="text" placeholder="Product Name" className="input input-bordered w-1/2" />
                     <label className="label">
                         <span className="label-text">Email</span>
                     </label>
-                    <input name='email' type="text" placeholder="Your email" defaultValue={user?.email} className="input input-bordered w-full" />
+                    <input name='email' type="text" placeholder="Your email" defaultValue={user?.email} className="input input-bordered w-1/2" />
                     <label className="label">
                         <span className="label-text">Service Image URl</span>
                     </label>
-                    <input name='photoURL' type="text" placeholder="Your photo url" className="input input-bordered w-full" />
+                    <input name='photoURL' type="text" placeholder="Your photo url" className="input input-bordered w-1/2" />
 
                     <label className="label">
                         <span className="label-text">Product Price</span>
                     </label>
-                    <input name='price' type="text" placeholder="price" className="input input-bordered w-full" />
+                    <input name='price' type="text" placeholder="price" className="input input-bordered w-1/2" />
                     <label className="label">
                         <span className="label-text">Mobile Number</span>
                     </label>
-                    <input name='number' type="text" placeholder="Please give your number" className="input input-bordered w-full" />
+                    <input name='number' type="text" placeholder="Please give your number" className="input input-bordered w-1/2" />
                     <label className="label">
                         <span className="label-text">Year Of Use</span>
                     </label>
-                    <input name='previous' type="text" placeholder="year of use" className="input input-bordered w-full" />
+                    <input name='previous' type="text" placeholder="year of use" className="input input-bordered w-1/2" />
                     <label className="label">
                         <span className="label-text">Description</span>
                     </label>
-                    <textarea name='message' type='text' className="textarea textarea-bordered w-full" placeholder="Product Description" required></textarea>
+                    <textarea name='message' type='text' className="textarea textarea-bordered w-1/2" placeholder="Product Description" required></textarea>
                     <label className="label">
                         <span className="label-text">Condition</span>
                     </label>
-                    <textarea name='condition' type='text' className="textarea textarea-bordered w-full" placeholder="condition" required></textarea>
+                    <textarea name='condition' type='text' className="textarea textarea-bordered w-1/2" placeholder="condition" required></textarea>
                     <label className="label">
                         <span className="label-text">Location</span>
                     </label>
-                    <textarea name='location' type='text' className="textarea textarea-bordered w-full" placeholder="Your Location" required></textarea>
-                    <div className="form-control w-full max-w-xs">
+                    <textarea name='location' type='text' className="textarea textarea-bordered w-1/2" placeholder="Your Location" required></textarea>
+                    <div className="form-control grid justify-items-center w-full max-w-xs">
+                    <label className="label">
+                        <span className="label-text">Choice Your Phone</span>
+                    </label>
                             <select name='id' className="select select-bordered w-full max-w-xs">
 
                                 <option value='01'>Iphone</option>
@@ -107,7 +110,7 @@ const AddProducts = () => {
                             </select>
                         </div>
                     <br />
-                    <input className='btn m-3 w-full' type='submit' value='ADD PRODUCT'></input>
+                    <input className='btn w-1/2 mb-5' type='submit' value='ADD PRODUCT'></input>
                 </div>
 
 

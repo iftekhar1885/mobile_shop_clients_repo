@@ -12,12 +12,6 @@ const Services = () => {
     })
 
 
-    // useEffect( () =>{
-    //     fetch(`https://mobile-shop-server.vercel.app/services`)
-    //     .then(res => res.json())
-    //     .then(data => setServices(data))
-    // }, [])
-
 
     return (
         <div className='mt-16'>
